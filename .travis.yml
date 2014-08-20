@@ -5,4 +5,4 @@ env: LC_CTYPE=en_US.UTF-8
 before_install:
 - gem install xcpretty
 script:
-- xcodebuild test -workspace Example/LupinusHTTP.xcworkspace -scheme LupinusHTTP -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- xcodebuild test -workspace LupinusHTTP.xcworkspace -scheme LupinusHTTP -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
