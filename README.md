@@ -30,7 +30,15 @@ LupinusHTTP has very simple step to request.
 2. Receive response object using `responseJSON` or `responseString` methods.
 
 
-### Get as JSON
+### GET Request
+
+####
+
+```objc
+
+```
+
+#### Get response as JSON
 
 Always `response*` complete method involked in matin thread.
 
@@ -41,7 +49,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 }];
 ```
 
-### Get as String
+#### Get response as String
 
 ```objc
 LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
@@ -51,7 +59,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 ```
 
 
-### Get as RawData
+#### Get response as RawData
 
 ```objc
 LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
@@ -59,6 +67,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
     // data
 }];
 ```
+
 
 
 ## Author

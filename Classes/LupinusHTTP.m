@@ -113,9 +113,11 @@
     }
     if (body) {
         NSError *error = nil;
-        [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:body options:0 error:&error]];
+        NSData *postData = [NSJSONSerialization dataWithJSONObject:body options:0 error:&error];
+        [request setHTTPBody:postData];
         if (error) {
             NSLog(@"%@ %@: %@", [self class], NSStringFromSelector(_cmd), error);
+
         }
     }
     return request;
