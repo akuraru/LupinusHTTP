@@ -32,9 +32,14 @@ LupinusHTTP has very simple step to request.
 
 ### GET Request
 
-####
+Example: Get Request to http://httpbin.org/get?key=value
 
 ```objc
+LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get" query:@{
+    @"key" : @"value"
+}];
+[httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+}];
 
 ```
 
@@ -68,7 +73,16 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 }];
 ```
 
+### POST Request
 
+```objc
+[LupinusHTTP request:LupinusMethodPOST URL:@"http://httpbin.org/post" query:@{
+    @"key" : @"value"
+} body:@[@1, @2, @3]];
+[httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+    NSLog(@"JSON = %@", JSON);// => JSON Object(NSDictionary or NSArray)
+}];
+```
 
 ## Author
 

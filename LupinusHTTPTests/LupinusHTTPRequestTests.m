@@ -117,7 +117,9 @@
 - (void)test_responseString_when_error_return_error {
     [self shouldReturnError];
     [self runAsyncWithBlock:^(AsyncDone done) {
-        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get" query:@{
+            @"key" : @"value"
+        }];
         [httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
             HC_assertThat(JSON, HC_is(HC_nilValue()));
             HC_assertThat(error, HC_isA([NSError class]));
