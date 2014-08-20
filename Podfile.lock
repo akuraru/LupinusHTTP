@@ -1,0 +1,27 @@
+PODS:
+  - AZEncodeURIComponent (0.1.0)
+  - NSDictionaryAsURLQuery (0.1.0):
+    - AZEncodeURIComponent
+  - NSRunLoop+PerformBlock (0.2.0)
+  - OCHamcrest (4.0.1)
+  - OHHTTPStubs (3.1.5):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/Core (3.1.5)
+  - XCTestCase-RunAsync (0.2.0):
+    - NSRunLoop+PerformBlock
+
+DEPENDENCIES:
+  - NSDictionaryAsURLQuery
+  - OCHamcrest (~> 4.0)
+  - OHHTTPStubs
+  - XCTestCase-RunAsync
+
+SPEC CHECKSUMS:
+  AZEncodeURIComponent: 571a0ee7d055bec60cb12c8f051ff860bce62145
+  NSDictionaryAsURLQuery: 119fc3e76a6fbe4e4b2af640ad5a2d34ed48c1ba
+  NSRunLoop+PerformBlock: 97e4339572c5481d9051cdc13b06b088fa449ae2
+  OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
+  OHHTTPStubs: c1e362552b71b81e1deb7a80f44c51585b946c43
+  XCTestCase-RunAsync: 55d64bbcf1b571930c247249749d26a9b1ef0100
+
+COCOAPODS: 0.33.1

@@ -1,34 +1,50 @@
 //
-//  LupinusHTTPTests.m
-//  LupinusHTTPTests
+// Created by azu on 2014/08/20.
 //
-//  Created by azu on 2014/08/20.
-//  Copyright (c) 2014年 azu. All rights reserved.
-//
+
 
 #import <XCTest/XCTest.h>
+#import "LupinusHTTPRequest.h"
+#import "LupinusHTTP.h"
+#import "OHHTTPStubsResponse.h"
+#import "OHHTTPStubs.h"
+#import "OHHTTPStubsResponse+JSON.h"
+#import "XCTestCase-RunAsync.h"
+
+#define HC_SHORTHAND
+
+#import <OCHamcrest/OCHamcrest.h>
+
 
 @interface LupinusHTTPTests : XCTestCase
-
 @end
 
-@implementation LupinusHTTPTests
-
-- (void)setUp
-{
+@implementation LupinusHTTPTests {
+}
+- (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown {
     [super tearDown];
+    [OHHTTPStubs removeAllStubs];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)test_request_return_LupinusHTTPRequest {
+    LupinusHTTPRequest *request = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get" query:@{} body:nil];
+    (request, isA([LupinusHTTPRequest class]));
 }
 
+- (void)test_request_should_request_http {
+    [self runAsyncWithBlock:^(AsyncDone done) {
+        [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            done();// catch http request
+            return YES;
+        } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithJSONObject:@{} statusCode:200 headers:@{}];
+        }];
+    }];
+}
 @end
+

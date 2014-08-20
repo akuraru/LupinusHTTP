@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17B5C1236AC9F51F81412859 /* LupinusHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C209ADA938025FF4D1FE /* LupinusHTTPRequest.m */; };
+		17B5CE2C8F11DCD4C0334450 /* LupinusHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C0E6B8FBDBC9944AAF09 /* LupinusHTTP.m */; };
+		17B5CF60EFA869DBBC0A14B7 /* LupinusHTTPRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C7996E9BE93119F5E787 /* LupinusHTTPRequestTests.m */; };
+		17B5CF97E754A642E3062F32 /* LupinusHTTPSessionTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C64EF758A4B5C030F58C /* LupinusHTTPSessionTaskDelegate.m */; };
+		3BE37934FAA44D31B4678D58 /* libPods-LupinusHTTPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8489D37E6DF45B580109C93 /* libPods-LupinusHTTPTests.a */; };
+		3DD192D2BD214BA4BC025444 /* libPods-LupinusHTTP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 006E43D700CC4920835831E0 /* libPods-LupinusHTTP.a */; };
 		7399F56719A4726800A681BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7399F56619A4726800A681BC /* Foundation.framework */; };
 		7399F56919A4726800A681BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7399F56819A4726800A681BC /* CoreGraphics.framework */; };
 		7399F56B19A4726800A681BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7399F56A19A4726800A681BC /* UIKit.framework */; };
@@ -34,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006E43D700CC4920835831E0 /* libPods-LupinusHTTP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LupinusHTTP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17B5C0BB8392A5E96B27EC69 /* LupinusHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LupinusHTTP.h; sourceTree = "<group>"; };
+		17B5C0E6B8FBDBC9944AAF09 /* LupinusHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LupinusHTTP.m; sourceTree = "<group>"; };
+		17B5C209ADA938025FF4D1FE /* LupinusHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LupinusHTTPRequest.m; sourceTree = "<group>"; };
+		17B5C3506E3F9311664C0492 /* LupinusHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LupinusHTTPRequest.h; sourceTree = "<group>"; };
+		17B5C64EF758A4B5C030F58C /* LupinusHTTPSessionTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LupinusHTTPSessionTaskDelegate.m; sourceTree = "<group>"; };
+		17B5C7996E9BE93119F5E787 /* LupinusHTTPRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LupinusHTTPRequestTests.m; sourceTree = "<group>"; };
+		17B5CF3C30843D851FEE31A4 /* LupinusHTTPSessionTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LupinusHTTPSessionTaskDelegate.h; sourceTree = "<group>"; };
 		7399F56319A4726800A681BC /* LupinusHTTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LupinusHTTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7399F56619A4726800A681BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7399F56819A4726800A681BC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +67,9 @@
 		7399F58D19A4726800A681BC /* LupinusHTTPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LupinusHTTPTests-Info.plist"; sourceTree = "<group>"; };
 		7399F58F19A4726800A681BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7399F59119A4726800A681BC /* LupinusHTTPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LupinusHTTPTests.m; sourceTree = "<group>"; };
+		7F039C5BFE494B7690F4B6F8 /* Pods-LupinusHTTPTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LupinusHTTPTests.xcconfig"; path = "Pods/Pods-LupinusHTTPTests.xcconfig"; sourceTree = "<group>"; };
+		88A73F70210941629AA0E3EE /* Pods-LupinusHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LupinusHTTP.xcconfig"; path = "Pods/Pods-LupinusHTTP.xcconfig"; sourceTree = "<group>"; };
+		B8489D37E6DF45B580109C93 /* libPods-LupinusHTTPTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LupinusHTTPTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +80,7 @@
 				7399F56919A4726800A681BC /* CoreGraphics.framework in Frameworks */,
 				7399F56B19A4726800A681BC /* UIKit.framework in Frameworks */,
 				7399F56719A4726800A681BC /* Foundation.framework in Frameworks */,
+				3DD192D2BD214BA4BC025444 /* libPods-LupinusHTTP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,12 +91,26 @@
 				7399F58619A4726800A681BC /* XCTest.framework in Frameworks */,
 				7399F58819A4726800A681BC /* UIKit.framework in Frameworks */,
 				7399F58719A4726800A681BC /* Foundation.framework in Frameworks */,
+				3BE37934FAA44D31B4678D58 /* libPods-LupinusHTTPTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17B5CBBB12BD739A31AEE2B1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17B5C0BB8392A5E96B27EC69 /* LupinusHTTP.h */,
+				17B5C0E6B8FBDBC9944AAF09 /* LupinusHTTP.m */,
+				17B5C3506E3F9311664C0492 /* LupinusHTTPRequest.h */,
+				17B5C209ADA938025FF4D1FE /* LupinusHTTPRequest.m */,
+				17B5CF3C30843D851FEE31A4 /* LupinusHTTPSessionTaskDelegate.h */,
+				17B5C64EF758A4B5C030F58C /* LupinusHTTPSessionTaskDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		7399F55A19A4726800A681BC = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +118,9 @@
 				7399F58B19A4726800A681BC /* LupinusHTTPTests */,
 				7399F56519A4726800A681BC /* Frameworks */,
 				7399F56419A4726800A681BC /* Products */,
+				88A73F70210941629AA0E3EE /* Pods-LupinusHTTP.xcconfig */,
+				7F039C5BFE494B7690F4B6F8 /* Pods-LupinusHTTPTests.xcconfig */,
+				17B5CBBB12BD739A31AEE2B1 /* Classes */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +140,8 @@
 				7399F56819A4726800A681BC /* CoreGraphics.framework */,
 				7399F56A19A4726800A681BC /* UIKit.framework */,
 				7399F58519A4726800A681BC /* XCTest.framework */,
+				006E43D700CC4920835831E0 /* libPods-LupinusHTTP.a */,
+				B8489D37E6DF45B580109C93 /* libPods-LupinusHTTPTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,6 +176,7 @@
 			children = (
 				7399F59119A4726800A681BC /* LupinusHTTPTests.m */,
 				7399F58C19A4726800A681BC /* Supporting Files */,
+				17B5C7996E9BE93119F5E787 /* LupinusHTTPRequestTests.m */,
 			);
 			path = LupinusHTTPTests;
 			sourceTree = "<group>";
@@ -159,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7399F59519A4726800A681BC /* Build configuration list for PBXNativeTarget "LupinusHTTP" */;
 			buildPhases = (
+				7CDAE8FF24B14E139279029A /* Check Pods Manifest.lock */,
 				7399F55F19A4726800A681BC /* Sources */,
 				7399F56019A4726800A681BC /* Frameworks */,
 				7399F56119A4726800A681BC /* Resources */,
+				F870EC6A73074F17B1D21B5D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7399F59819A4726800A681BC /* Build configuration list for PBXNativeTarget "LupinusHTTPTests" */;
 			buildPhases = (
+				F88586B19ED549EB83FD93B9 /* Check Pods Manifest.lock */,
 				7399F58019A4726800A681BC /* Sources */,
 				7399F58119A4726800A681BC /* Frameworks */,
 				7399F58219A4726800A681BC /* Resources */,
+				4F148ECBF8D6480F88B98C1E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +286,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F148ECBF8D6480F88B98C1E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-LupinusHTTPTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CDAE8FF24B14E139279029A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F870EC6A73074F17B1D21B5D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-LupinusHTTP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F88586B19ED549EB83FD93B9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7399F55F19A4726800A681BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -252,6 +357,9 @@
 				7399F57D19A4726800A681BC /* ViewController.m in Sources */,
 				7399F57719A4726800A681BC /* AppDelegate.m in Sources */,
 				7399F57319A4726800A681BC /* main.m in Sources */,
+				17B5CE2C8F11DCD4C0334450 /* LupinusHTTP.m in Sources */,
+				17B5C1236AC9F51F81412859 /* LupinusHTTPRequest.m in Sources */,
+				17B5CF97E754A642E3062F32 /* LupinusHTTPSessionTaskDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7399F59219A4726800A681BC /* LupinusHTTPTests.m in Sources */,
+				17B5CF60EFA869DBBC0A14B7 /* LupinusHTTPRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +482,7 @@
 		};
 		7399F59619A4726800A681BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88A73F70210941629AA0E3EE /* Pods-LupinusHTTP.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -386,6 +496,7 @@
 		};
 		7399F59719A4726800A681BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88A73F70210941629AA0E3EE /* Pods-LupinusHTTP.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -399,6 +510,7 @@
 		};
 		7399F59919A4726800A681BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F039C5BFE494B7690F4B6F8 /* Pods-LupinusHTTPTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LupinusHTTP.app/LupinusHTTP";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -421,6 +533,7 @@
 		};
 		7399F59A19A4726800A681BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F039C5BFE494B7690F4B6F8 /* Pods-LupinusHTTPTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LupinusHTTP.app/LupinusHTTP";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -456,6 +569,7 @@
 				7399F59719A4726800A681BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7399F59819A4726800A681BC /* Build configuration list for PBXNativeTarget "LupinusHTTPTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +578,7 @@
 				7399F59A19A4726800A681BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
