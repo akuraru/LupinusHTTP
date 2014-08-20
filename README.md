@@ -84,6 +84,26 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 }];
 ```
 
+## LupinusHTTP Request Flow
+
+Request flow design of LupinusHTTP.
+
+```objc
+// Create NSURLSession and NSURLRequest.
+LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+// already started HTTP request
+// ...
+// you can register complete handler
+// Lupinus add this handler to `queue`
+[httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+    NSLog(@"JSON = %@", JSON);// => JSON Object(NSDictionary or NSArray)
+}];
+
+// ....
+// Get HTTP response.
+// Lupinus dispatch_resume(self.queue); => callback the complete handlers.
+```
+
 ## Author
 
 azu, azuciao@gmail.com
