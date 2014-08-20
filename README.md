@@ -39,6 +39,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
     @"key" : @"value"
 }];
 [httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+    NSLog(@"JSON = %@", JSON);
 }];
 
 ```
