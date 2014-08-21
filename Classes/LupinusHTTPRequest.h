@@ -14,7 +14,10 @@ typedef void (^LupinusHTTPRequestResponseJSON)(NSURLRequest *request, NSURLRespo
 
 + (instancetype)requestWithSession:(NSURLSession *) session dataTask:(NSURLSessionDataTask *) dataTask;
 
+#pragma mark - operation task
+
 - (void)resume;
+- (void)cancel;
 
 #pragma mark - response methods
 

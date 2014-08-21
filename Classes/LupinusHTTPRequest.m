@@ -7,7 +7,6 @@
 
 
 @interface LupinusHTTPRequest ()
-@property(nonatomic, strong) NSURLSession *session;
 @property(nonatomic, strong) NSURLRequest *request;
 @property(nonatomic, strong) NSURLSessionDataTask *dataTask;
 @property(nonatomic, strong) NSError *response_error;
@@ -24,7 +23,6 @@
         return nil;
     }
 
-    self.session = session;
     self.dataTask = dataTask;
     // create queue and default status is stop!
     NSString *queueLabel = [NSString stringWithFormat:@"info.efcl.LupinusHTTP.task-%d", dataTask.taskIdentifier];
@@ -41,6 +39,11 @@
 - (void)resume {
     [self.dataTask resume];
 }
+
+- (void)cancel {
+    [self.dataTask cancel];
+}
+
 
 // response is always async callback
 - (void)responseJSON:(LupinusHTTPRequestResponseJSON) complete {
