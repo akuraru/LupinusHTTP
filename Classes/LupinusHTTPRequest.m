@@ -100,7 +100,7 @@
     // 15. https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/URLLoadingSystem/NSURLSessionConcepts/NSURLSessionConcepts.html
     [session invalidateAndCancel];
 
-    // if cancel, then doesn't resume queue.
+    // if request is canceled, then doesn't resume queue.
     if (error.code == NSURLErrorCancelled) {
         return;
     }

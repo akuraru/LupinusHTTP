@@ -25,9 +25,9 @@ it, simply add the following line to your Podfile:
 
 LupinusHTTP has very simple step to request.
 
-1. Create LupinusHTTPRequest
+1. Create `LupinusHTTPRequest` through `LupinusHTTP`'s method.
     * HTTP Method and URL and Parameters and (post body).
-2. Receive response object using `responseJSON` or `responseString` methods.
+2. Receive response using `responseJSON` or `responseString` methods.
 
 
 ### GET Request
@@ -101,13 +101,18 @@ You can create a new session with a modified session configuration.
 + (instancetype)httpWithSessionConfiguration:(NSURLSessionConfiguration *) sessionConfiguration;
 ```
 
-### Cancel Task
+### Cancel Request
 
-You can cancel the request.
+You can cancel the request by `LupinusHTTPRequest#cancel`.
 
-        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
-        // cancel request
-        [httpRequest cancel];
+```objc
+LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+[httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+  // this callback doens't call!
+}];
+// cancel request
+[httpRequest cancel];
+```
 
 ## LupinusHTTP Request Flow
 
