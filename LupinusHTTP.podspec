@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LupinusHTTP"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "LupinusHTTP is an HTTP networking library, wrapping NSURLSession."
   s.homepage     = "https://github.com/azu/LupinusHTTP"
   s.license      = { :type => "MIT", :file => "LICENSE" }
