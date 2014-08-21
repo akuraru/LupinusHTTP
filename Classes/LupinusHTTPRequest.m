@@ -44,7 +44,6 @@
     [self.dataTask cancel];
 }
 
-
 // response is always async callback
 - (void)responseJSON:(LupinusHTTPRequestResponseJSON) complete {
     dispatch_async(self.queue, ^{
@@ -97,9 +96,18 @@
 
 // always call this method when success or failure.
 - (void)URLSession:(NSURLSession *) session task:(NSURLSessionTask *) task didCompleteWithError:(NSError *) error {
+    // prevent app leaks memory
+    // 15. https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/URLLoadingSystem/NSURLSessionConcepts/NSURLSessionConcepts.html
+    [session invalidateAndCancel];
+
+    // if cancel, then doesn't resume queue.
+    if (error.code == NSURLErrorCancelled) {
+        return;
+    }
     self.response_error = error;
     // resume -> start response*handler
     dispatch_resume(self.queue);
+
 }
 
 

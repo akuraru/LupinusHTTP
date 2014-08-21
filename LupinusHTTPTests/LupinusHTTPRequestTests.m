@@ -69,9 +69,17 @@
         }];
         LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
         // cancel request
+        [httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+            XCTFail(@"don't call");// *1
+        }];
         [httpRequest cancel];
         XCTAssertEqual(httpRequest.dataTask.state, NSURLSessionTaskStateCanceling);
-        done();
+        // add queue and done(
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                done();
+            });
+        });
     }];
 }
 

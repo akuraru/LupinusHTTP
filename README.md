@@ -75,6 +75,14 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 
 ### POST Request
 
+#### Post Request with body
+
+    e.g) http://httpbin.org/post?key=value
+    
+    body
+        [1,2,3]
+
+
 ```objc
 [LupinusHTTP request:LupinusMethodPOST URL:@"http://httpbin.org/post" query:@{
     @"key" : @"value"
@@ -83,6 +91,23 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
     NSLog(@"JSON = %@", JSON);// => JSON Object(NSDictionary or NSArray)
 }];
 ```
+
+### Use Custom NSURLSession
+
+You can create a new session with a modified session configuration.
+
+```objc
+// default : [NSURLSessionConfiguration defaultSessionConfiguration]
++ (instancetype)httpWithSessionConfiguration:(NSURLSessionConfiguration *) sessionConfiguration;
+```
+
+### Cancel Task
+
+You can cancel the request.
+
+        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+        // cancel request
+        [httpRequest cancel];
 
 ## LupinusHTTP Request Flow
 
