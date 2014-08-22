@@ -10,8 +10,9 @@
 @property(nonatomic, strong) NSURLRequest *request;
 @property(nonatomic, strong) NSURLSessionDataTask *dataTask;
 @property(nonatomic, strong) NSError *response_error;
-@property(nonatomic, strong) NSData *response_data;
+@property(nonatomic, strong) NSMutableData *response_data;
 @property(nonatomic, strong) dispatch_queue_t queue;
+@property(nonatomic, strong) NSURLSession *session;
 @end
 
 @implementation LupinusHTTPRequest {
@@ -22,7 +23,8 @@
     if (self == nil) {
         return nil;
     }
-
+    self.response_data = [NSMutableData data];
+    self.session = session;
     self.dataTask = dataTask;
     // create queue and default status is stop!
     NSString *queueLabel = [NSString stringWithFormat:@"info.efcl.LupinusHTTP.task-%d", dataTask.taskIdentifier];
@@ -91,7 +93,7 @@
 #pragma mark  - NSURLSessionDataDelegate
 
 - (void)URLSession:(NSURLSession *) session dataTask:(NSURLSessionDataTask *) dataTask didReceiveData:(NSData *) data {
-    self.response_data = data;
+    [self.response_data appendData:data];
 }
 
 // always call this method when success or failure.

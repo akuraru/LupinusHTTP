@@ -95,6 +95,27 @@
     }];
 }
 
+- (void)test_response_is_not_chunk_data {
+    NSArray *jsonObject = @[
+        @1, @2, @3, @4, @5
+    ];
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        // @selector(URLSession:dataTask:didReceiveData:)'s data is chunk data.
+        return [[OHHTTPStubsResponse responseWithJSONObject:jsonObject statusCode:200 headers:@{@"Content-Type" : @"text/json"}]
+            requestTime:0 responseTime:1];
+    }];
+    [self runAsyncWithBlock:^(AsyncDone done) {
+        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+        // should get all data as json
+        [httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+            HC_assertThat(JSON, HC_is(HC_equalTo(jsonObject)));
+            done();
+        }];
+    }];
+}
+
 #pragma mark - json
 
 - (void)test_responseJSON_should_return_JSON {
@@ -184,8 +205,9 @@
     [self shouldReturnError];
     [self runAsyncWithBlock:^(AsyncDone done) {
         LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
-        [httpRequest responseRawData:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
-            HC_assertThat(JSON, HC_is(HC_nilValue()));
+        [httpRequest responseRawData:^(NSURLRequest *request, NSURLResponse *response, NSData *rawData, NSError *error) {
+            XCTAssert([rawData isKindOfClass:[NSData class]]);
+            XCTAssert(rawData.length == 0);
             HC_assertThat(error, HC_isA([NSError class]));
             done();
         }];
