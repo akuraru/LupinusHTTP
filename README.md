@@ -92,7 +92,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 }];
 ```
 
-### Common behavior
+### Common behavior - response.statusCode >= 400
 
 When response.statusCode >= 400, recognize request as failed and `error` is filled by  status code of.
 
