@@ -5,6 +5,7 @@
 
 #import "LupinusHTTPRequest.h"
 
+NSString *const LupinusHTTPRequestErrorDomain = @"info.efcl.LupinusHTTPRequest.response";
 
 @interface LupinusHTTPRequest ()
 @property(nonatomic, strong) NSURLRequest *request;
@@ -46,19 +47,36 @@
     [self.dataTask cancel];
 }
 
+// shortcut
+- (void)failBack:(LupinusHTTPRequestResponseJSON) complete {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        complete(self.request, self.dataTask.response, nil, self.response_error);
+    });
+}
+
+- (NSError *)errorWithResponse:(NSHTTPURLResponse *) urlResponse {
+    NSDictionary *userInfo = @{
+        NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Request failed: %@ (%ld)", [NSHTTPURLResponse localizedStringForStatusCode:urlResponse.statusCode], (long)urlResponse.statusCode],
+        NSURLErrorFailingURLErrorKey : [urlResponse URL],
+    };
+    return [NSError errorWithDomain:LupinusHTTPRequestErrorDomain code:urlResponse.statusCode userInfo:userInfo];
+}
+
 // response is always async callback
 - (void)responseJSON:(LupinusHTTPRequestResponseJSON) complete {
     dispatch_async(self.queue, ^{
         if (self.response_error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                complete(self.request, self.dataTask.response, nil, self.response_error);
-            });
+            [self failBack:complete];
         } else {
             NSError *jsonError = nil;
             id JSON = [NSJSONSerialization JSONObjectWithData:self.response_data options:0 error:&jsonError];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (jsonError) {
-                    complete(self.request, self.dataTask.response, JSON, jsonError);
+                    return complete(self.request, self.dataTask.response, JSON, jsonError);
+                }
+                NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)self.dataTask.response;
+                if (urlResponse.statusCode >= 400) {
+                    complete(self.request, urlResponse, JSON, [self errorWithResponse:urlResponse]);
                 } else {
                     complete(self.request, self.dataTask.response, JSON, self.response_error);
                 }
@@ -70,13 +88,16 @@
 - (void)responseString:(LupinusHTTPRequestResponseString) complete {
     dispatch_async(self.queue, ^{
         if (self.response_error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                complete(self.request, self.dataTask.response, nil, self.response_error);
-            });
+            [self failBack:complete];
         } else {
             NSString *string = [[NSString alloc] initWithData:self.response_data encoding:NSUTF8StringEncoding];
             dispatch_async(dispatch_get_main_queue(), ^{
-                complete(self.request, self.dataTask.response, string, self.response_error);
+                NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)self.dataTask.response;
+                if (urlResponse.statusCode >= 400) {
+                    complete(self.request, self.dataTask.response, string, [self errorWithResponse:urlResponse]);
+                } else {
+                    complete(self.request, self.dataTask.response, string, self.response_error);
+                }
             });
         }
     });

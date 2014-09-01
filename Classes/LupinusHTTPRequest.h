@@ -20,6 +20,13 @@ typedef void (^LupinusHTTPRequestResponseJSON)(NSURLRequest *request, NSURLRespo
 - (void)cancel;
 
 #pragma mark - response methods
+/* ## Common behavior
+
+   - When response.statusCode >= 400, recognize request as failed.
+        - `error` is filled by  status code of .
+
+ */
+
 
 // response json
 - (void)responseJSON:(LupinusHTTPRequestResponseJSON) complete;

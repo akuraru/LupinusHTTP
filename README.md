@@ -92,6 +92,21 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 }];
 ```
 
+### Common behavior
+
+When response.statusCode >= 400, recognize request as failed and `error` is filled by  status code of.
+
+```objc
+LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/status/403"];
+// response status code is 403
+[httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+    // error is not nil
+    if(error){
+        NSLog(@"%@", error);
+    }
+}];
+```
+
 ### Use Custom NSURLSession
 
 You can create a new session with a modified session configuration.

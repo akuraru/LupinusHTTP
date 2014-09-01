@@ -116,6 +116,46 @@
     }];
 }
 
+- (void)test_when_status_code_400_then_error_is_filled {
+    NSDictionary *expected = @{@"a" : @1};
+
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithJSONObject:expected statusCode:400 headers:@{@"Content-Type" : @"text/json"}];
+
+    }];
+    [self runAsyncWithBlock:^(AsyncDone done) {
+        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
+        // should get all data as json
+        [httpRequest responseJSON:^(NSURLRequest *request, NSURLResponse *response, id JSON, NSError *error) {
+            HC_assertThat(error, HC_is(HC_notNilValue()));
+            HC_assertThat(JSON, HC_is(HC_equalTo(expected)));
+            done();
+        }];
+    }];
+}
+
+- (void)test_when_status_code_403_then_error_is_filled_string_too {
+    NSString *expected = @"test";
+
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithData:[expected dataUsingEncoding:NSUTF8StringEncoding] statusCode:403 headers:@{}];
+
+    }];
+    [self runAsyncWithBlock:^(AsyncDone done) {
+        LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/status/403"];
+        // should get all data as json
+        [httpRequest responseString:^(NSURLRequest *request, NSURLResponse *response, NSString *string, NSError *error) {
+            HC_assertThat(error, HC_is(HC_notNilValue()));
+            HC_assertThat(string, HC_is(HC_equalTo(expected)));
+            done();
+        }];
+    }];
+}
+
 #pragma mark - json
 
 - (void)test_responseJSON_should_return_JSON {
