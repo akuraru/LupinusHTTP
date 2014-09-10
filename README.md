@@ -151,7 +151,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 
 ## FAQ
 
-### Does LupinusHTTP work in the background?
+### Does LupinusHTTP work with Background Fetch?
 
 No.
 
