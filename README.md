@@ -59,7 +59,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 ```objc
 LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"http://httpbin.org/get"];
 [httpRequest responseString:^(NSURLRequest *request, NSURLResponse *response, NSString *string, NSError *error) {
-    NSLog(@"string = %@", string);// => NSString 
+    NSLog(@"string = %@", string);// => NSString
 }];
 ```
 
@@ -78,7 +78,7 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 #### Post Request with body
 
     e.g) http://httpbin.org/post?key=value
-    
+
     body
         [1,2,3]
 
@@ -148,6 +148,20 @@ LupinusHTTPRequest *httpRequest = [LupinusHTTP request:LupinusMethodGET URL:@"ht
 // Get HTTP response.
 // Lupinus dispatch_resume(self.queue); => callback the complete handlers.
 ```
+
+## FAQ
+
+### Does LupinusHTTP work in the background?
+
+No.
+
+LupinusHTTP doens't work with Background Fetch.
+
+- [Multitasking in iOS 7 - iOS 7 - objc.io issue #5](http://www.objc.io/issue-5/multitasking.html "Multitasking in iOS 7 - iOS 7 - objc.io issue #5")
+- Background Fetch require using `NSURLSessionDownloadTask`.
+
+But, welcome to your pull request!
+
 
 ## Contributing
 
