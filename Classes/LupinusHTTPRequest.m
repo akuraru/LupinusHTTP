@@ -28,7 +28,7 @@ NSString *const LupinusHTTPRequestErrorDomain = @"info.efcl.LupinusHTTPRequest.r
     self.session = session;
     self.dataTask = dataTask;
     // create queue and default status is stop!
-    NSString *queueLabel = [NSString stringWithFormat:@"info.efcl.LupinusHTTP.task-%d", dataTask.taskIdentifier];
+    NSString *queueLabel = [NSString stringWithFormat:@"info.efcl.LupinusHTTP.task-%zd", dataTask.taskIdentifier];
     dispatch_queue_t queue = dispatch_queue_create(queueLabel.UTF8String, DISPATCH_QUEUE_SERIAL);
     dispatch_suspend(queue);
     self.queue = queue;
@@ -56,7 +56,7 @@ NSString *const LupinusHTTPRequestErrorDomain = @"info.efcl.LupinusHTTPRequest.r
 
 - (NSError *)errorWithResponse:(NSHTTPURLResponse *) urlResponse {
     NSDictionary *userInfo = @{
-        NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Request failed: %@ (%ld)", [NSHTTPURLResponse localizedStringForStatusCode:urlResponse.statusCode], (long)urlResponse.statusCode],
+        NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Request failed: %@ (%zd)", [NSHTTPURLResponse localizedStringForStatusCode:urlResponse.statusCode], urlResponse.statusCode],
         NSURLErrorFailingURLErrorKey : [urlResponse URL],
     };
     return [NSError errorWithDomain:LupinusHTTPRequestErrorDomain code:urlResponse.statusCode userInfo:userInfo];
